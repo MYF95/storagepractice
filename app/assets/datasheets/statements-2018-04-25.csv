@@ -1,0 +1,9 @@
+id,date,amount,description
+1,2017-10-01,-100,Local Council ponsan
+2,2017-10-01,-100,Expense repayment ponsan
+3,2017-10-01,240,Local Council
+4,2017-10-01,1056,Sales
+5,2017-10-05,3560,Sales
+6,2017-10-05,-650,Bill
+7,2017-10-05,5980,Sales
+8,2017-10-05,1020,Bill

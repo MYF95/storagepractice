@@ -1,0 +1,43 @@
+<%= flash[:notice] %>
+
+<h1>Statements</h1>
+
+<h2>Note</h2>
+<p>CSV should be imported with the following format: id,date,amount,description. In case you don't add an ID, it will
+directly create new entries for the CSV</p>
+
+<p>
+  Download:
+  <%=link_to 'CSV', statements_index_path(format: 'csv') %>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @statements.each do |statement| %>
+      <tr>
+        <td><%= statement.date %></td>
+        <td><%= statement.amount %></td>
+        <td><%= statement.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Import statement data!</h3>
+  <%= form_with url: statements_import_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>
+
+<h3>Destroy all data!</h3>
+<%= link_to 'Destroy', statements_destroy_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<p><%= link_to 'Posts', posts_path %></p>
+<p><%= link_to 'Back to home', root_path %></p>
