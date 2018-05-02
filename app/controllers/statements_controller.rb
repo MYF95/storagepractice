@@ -17,4 +17,8 @@ class StatementsController < ApplicationController
     Statement.import(params[:file])
     redirect_to statements_index_path, notice: "Statement data imported!"
   end
+
+  def upload
+  end
 end
+

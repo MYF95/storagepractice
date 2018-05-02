@@ -36,6 +36,15 @@ directly create new entries for the CSV</p>
     <%= submit_tag "Import CSV" %>
   <% end %>
 
+<!--TODO New bucket for CSV's, other one for images, since it can't be separated.-->
+<!--TODO Read from files from the bucket-->
+
+<h3>Upload statements to bucket</h3>
+  <%= form_with url: statements_upload_path, multipart: true do |form|%>
+    <%= form.file_field :attachments, multiple: true, direct_upload: true%>
+    <%= submit_tag "Upload CSV" %>
+  <% end %>
+
 <h3>Destroy all data!</h3>
 <%= link_to 'Destroy', statements_destroy_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 
