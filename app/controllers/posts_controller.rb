@@ -1,5 +1,12 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :download]
+
+  def download
+    require 'open-uri'
+    url =  @post.image.service_url
+    data = open(url).read
+    send_data data, filename: "#{params[:id]}.jpeg", disposition: 'attachment'
+  end
 
   # GET /posts
   # GET /posts.json
